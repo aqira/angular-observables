@@ -1,22 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-first-page',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  imports: [],
+  templateUrl: './first-page.component.html',
+  styleUrl: './first-page.component.css'
 })
-export class AppComponent implements OnInit {
-  title = 'test-observables';
+export class FirstPageComponent implements OnInit {
+  public title: string = "";
+  
   ngOnInit(): void {
     const customObservable = new Observable<number>((observer) => {
       let count = 0;
       setInterval(() => {
         observer.next(count);
+        console.log("first page : " + count.toString());
         count++;
       }, 1000);
     });
